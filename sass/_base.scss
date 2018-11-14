@@ -1,0 +1,140 @@
+
+@font-face {
+    font-family: 'pinebrickregular';
+    src: url('../font/pinebrick.woff2') format('woff2'),
+         url('../font/pinebrick.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'Geomanist';
+    src: url('../font/Geomanist-Regular.eot');
+    src: url('Geomanist-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../font/Geomanist-Regular.woff') format('woff'),
+        url('../font/Geomanist-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+$color_primary: #35c599;
+$color_primary_dark: #49716d;
+$color_secondary: #49b7c4;
+
+$main_dark_color: #171717;
+$paragraph_on_white: #0e0e0e;
+$paragraph_on_black: #bebebe;
+
+
+//media querries
+
+$phone: 599px;
+$tablet_port: 600px;
+$tablet_land: 900px;
+$desktop: 1200px;
+$desktop_plus: 1420px;
+$big_desktop: 1800px;
+
+@mixin mediaq($media) {
+    @if $media == phone {
+      @media only screen and (max-width: $phone) { @content; }
+    }
+    @else if $media == tab-port {
+      @media only screen and (min-width: $tablet_port) and (max-width: $tablet-land - 1) { @content; }
+    }
+    @else if $media == tab-land {
+        @media only screen and (min-width: $tablet_land) and (max-width: $desktop - 1) { @content; }
+    }
+    @else if $media == desktop_plus {
+        @media only screen and (min-width: $desktop) and (max-width: $desktop_plus - 1) { @content; }
+    }
+    @else if $media == wide_screen {
+      @media only screen and (min-width: $big_desktop) { @content; }
+    }
+}
+
+
+
+
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; //1rem = 10px;
+    @include mediaq(phone) {
+        font-size: 62.5%;
+      }
+    @include mediaq(tab-port) {
+        font-size: 55%;
+    }
+    @include mediaq(tab-land) {
+        font-size: 57.5%;
+    }
+}
+
+body {
+    font-family: "Geomanist", sans-serif;
+    font-weight: normal;
+    line-height: 1.6;
+    @include mediaq(phone) {
+        width: 96%;
+        margin: 0 auto;
+      }
+    @include mediaq(tab-port) {
+        width: 98%;
+        margin: 0 auto;
+    }
+    @include mediaq(tab-land) {
+        width: 98%;
+        margin: 0 auto;
+    }
+    @include mediaq(desktop_plus) {
+        width: 98%;
+        margin: 0 auto;
+    }
+}
+
+
+//#animations
+
+@keyframes text-load-up {
+    0% {
+        opacity: 0;
+        transform: translateY(-10rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0rem);
+    }
+}
+@keyframes text-load-down {
+    0% {
+        opacity: 0;
+        transform: translateY(6rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0rem);
+    }
+}

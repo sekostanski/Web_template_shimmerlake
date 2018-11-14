@@ -1,0 +1,28 @@
+.container {
+    max-width: 117.2rem;
+    margin: 0 auto;
+    }
+
+    .bttn-main:link,
+    .bttn-main:visited {
+        display: inline-block;
+        padding: 1.5rem 3rem;
+        margin-top: 2.9rem;
+        font-size: 1.2rem;
+        font-weight: normal;
+        text-decoration: none;
+        text-transform: uppercase;
+        line-height: 1;
+        color: #fff;
+        background-color: $color_primary;
+        transition: all 1s;
+        @include mediaq(phone) {
+            width: 60%;
+            margin-top: 2.5rem;
+            margin-bottom: 3rem;
+        }
+    }
+
+    .bttn-main:hover {
+        background-color: #49b7c4;
+    }
